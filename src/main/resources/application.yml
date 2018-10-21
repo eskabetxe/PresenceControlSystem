@@ -1,0 +1,28 @@
+server:
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:presence
+    username: sa
+    password:
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+
+  h2:
+    console:
+      enabled: true
+      path: /h2console
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: presence
